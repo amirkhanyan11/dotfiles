@@ -1,38 +1,23 @@
 return {
 
-  {'dasupradyumna/midnight.nvim'},
+  { "dasupradyumna/midnight.nvim" },
 
 
-  {"rose-pine/neovim"},
 
-  {"navarasu/onedark.nvim"},
-  
-  {"projekt0n/github-nvim-theme"},
-  
-  {"mellow-theme/mellow.nvim"},
-  
-  {"bluz71/vim-nightfly-colors"},
-  
-  {"shaunsingh/solarized.nvim"},
+  { "rose-pine/neovim",
+     opts = {
+        enable = {
+        terminal = false,
+        legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+        migrations = true, -- Handle deprecated options automatically
 
+    styles = {
+        bold = true,
+        italic = true,
+        transparency = true,
+        },
+     },
 
-{
-
-   "folke/tokyonight.nvim",
---     opts = {
---       transparent = true,
---       styles = {
---         sidebars = "transparent",
---         float = "transparent",
---       },
---     },
-  },
-
-  -- Configure LazyVim to load gruvbox
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "nightfly",
-    },
+    }, 
   },
 }
