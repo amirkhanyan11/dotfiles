@@ -7,7 +7,6 @@ vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.cmd("hi NormalNC guibg=NONE ctermbg=NONE")
 
-require("notify").setup({
-
-  background_colour= "#000000",
-})
+-- require("notify").setup({
+--   background_colour= "#000000",
+-- })
