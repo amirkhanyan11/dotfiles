@@ -159,4 +159,10 @@ export PATH="$HOME/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH=$PATH":/Users/aamirkha/.local/applications/bin"
 
+
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias fzf="fzf --style=full --preview='less {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
+alias fman="compgen -ac | fzf | xargs man"
+alias fzfd='find . -type d -print | fzf'
+alias cfzfd='cd $(fzfd)'
