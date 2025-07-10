@@ -1,11 +1,12 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
+export PATH="$PATH:/home/artyom/.local/applications/nvim/bin"
+export CUBE='/mnt/c/Users/Artyom/STM32CubeIDE'
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
@@ -70,11 +71,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-
-ZSH_DISABLE_COMPFIX=true
-
 
 source $ZSH/oh-my-zsh.sh
 
@@ -89,75 +86,24 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-#
-#
 
-
-alias jan="ls -l"
-alias g23="g++ -std=gnu++23"
-alias g20="g++ -std=c++2a"
-alias cc="cc -Wall -Wextra -Werror"
-alias cm="cc -Wall -Wextra -Werror main.c && ./a.out && rm a.out"
-alias nf="norminette -R CheckForbiddenSourceHeader"
-alias cl="make re && cc -Wall -Wextra -Werror main/main.c libft.a && make clean"
-alias run="echo Output : && ./a.out"
-alias clr="rm -rf ~/Desktop/libft/libft/*.o"
-alias nv="nvim"
-
-
-USER=aamirkha
-MAIL=aamirkha@student.42.fr
-
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-
-alias francinette=/Users/aamirkha/francinette/tester.sh
-
-
-export CC=/usr/bin/gcc
-# export PATH="/Users/aamirkha/bin:$PATH"
-# export PATH="/Users/aamirkha/local/bin:$PATH"
-# export PATH="/Users/aamirkha/local/lib:$PATH"
-# export PATH="/Users/aamirkha/local/share:$PATH"
-# export PATH="/Users/aamirkha/Library/Python/3.9/bin:$PATH"
-# export PATH="/Users/aamirkha/nvim/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# export PATH="/Users/aamirkha/goinfre/nvim-macos/bin:$PATH"
-# export PATH=$PATH:"/Users/aamirkha/Library/Python/3.9/lib/python/site-packages/"
-
-alias n++='c++ --std=c++98 '
-alias paco=/Users/aamirkha/francinette/tester.sh
-export PATH=$HOME/.brew/bin:$PATH
-
-
-# Load Homebrew config script
-source $HOME/.brewconfig.zsh
-export PATH="$PATH:/Users/aamirkha/Desktop/minishell"
-export PATH="$PATH:/Users/aamirkha/Library/Python/3.9/bin"
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-export PATH="$HOME/local/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH=$PATH":/Users/aamirkha/.local/applications/bin"
 
 
 # fzf
@@ -166,3 +112,7 @@ alias fzf="fzf --style=full --preview='less {}' --bind shift-up:preview-page-up,
 alias fman="compgen -ac | fzf | xargs man"
 alias fzfd='find . -type d -print | fzf'
 alias cfzfd='cd $(fzfd)'
+alias nf='nvim $(cd ~ && fzf)'
+alias copyfile='xclip -sel c < $(fzf)'
+
+
